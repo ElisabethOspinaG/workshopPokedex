@@ -1,39 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-
-html{
-    width: 100%;
-    height: 100%;
+footer{color: rgb(255, 255, 255);}
+header{color: rgb(255, 255, 255)}
+body{
+    font-family: 'Roboto', sans-serif;
 }
+
+
 header {
     font-size: 18pt;
-    font-family: verdana, arial;
     text-align: center;
-    background-color: teal;
+    background-color: rgb(31, 31, 31);
     justify-items: start;
     padding: 10px; /*/margen al lado izquierdo por dentro del header*/
     align-items: center; /* alinear centrado en el eje vertical > */
     display: flex; /* para que los elementos me queden seguidos*/
-    gap: 10px; /* para darle espacio a los elementos que pusimos seguidos. 
-                  Esta de la mano con display flex*/
+    /* gap: 10px; /* para darle espacio a los elementos que pusimos seguidos.  */
+                  /*Esta de la mano con display flex*/
+
 }
+
+
 .header_figure img{
-    width: 30px;   
+    width: 30px;
+    height: 30px;
+    padding: 10px;   
 }
 
 main{ 
     font-size: 20pt;
-    font-family: verdana, arial;
     text-align: center;
-    background-color: #c9e2dc; 
+    background-color: #5c5c5c; 
     padding: 5%; 
-
 }
 
-#main_img1{
-width: 40px;
-margin: 0px 10px 0px 10px;
-}
+
 
 figure{
     margin: 0;
@@ -58,11 +59,11 @@ main{
     display: flex;
     padding: 8px;
     justify-content: center;
-    width: 50%;
-    background-color: aliceblue;
+    background-color: rgb(226, 226, 226);
     text-align: center;
     border-radius: 10px;
     align-items: center;
+    width: fit-content;
 
 }
 .detail-title{
@@ -70,7 +71,6 @@ main{
     font-weight: bolder;
 }
 .container1{
-    width: 60%; 
     display: flex;
     gap: 5px;
 }
@@ -78,10 +78,10 @@ main{
 .container2{
     width: 30%;
     opacity: 0,5;
-    background-color: aliceblue;
-    padding: 20px;
+    background-color: rgb(253, 253, 253);
+    padding-left: 20px;
+    padding-right: 20px;
     border-radius: 22px; 
-
     display: flex;
     align-content: space-around;
     flex-direction: column;
@@ -103,7 +103,6 @@ main{
 h1{
     font-size: 16pt;
     text-align: center;
-    font-family: 'Climate Crisis';
 }
 
 /* #name_pokemon ::before{
@@ -117,7 +116,7 @@ h1{
     font-size: 14pt;
     font-family: verdana, arial;
     text-align: center;
-    background-color: teal;
+    background-color: rgb(31, 31, 31);
     display: flex; 
        
 }
@@ -150,27 +149,10 @@ h1{
     width: 45%;
 }
 
-/* #footer_img1{
-    width: 5%;
-}
-
-#footer_img2{
-    width: 5%;
-}
-
-#footer_img3{
-    width: 5%;
-}
-
-#footer_img4{
-    width: 5%;
-} */
-
-/* footer.div_footer{
-    display: flex; 
-    gap: 10;
-    width: 80;
-}
-/* .a{ El Elemento HTML Anchor <a> crea un enlace a otras páginas de internet, archivos o ubicaciones  */
-/* dentro de la misma página, direcciones de correo, o cualquier otra URL
-    text-decoration: none; para quitarle el subrayado a las etiquetas a */
+@media screen and (max-width: 900px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
