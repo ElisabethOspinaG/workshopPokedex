@@ -8,9 +8,9 @@ let pokemones = [];
 
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
-const getPokemonsfromapi = async (a) => {
-  const { data } = await axios.get(a);
-  return data;
+const getPokemonsfromapi = async (url) => {
+    const {data} = await axios.get(url);
+    return data;
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
