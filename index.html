@@ -6,25 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./styles.css">
-    <title>workshop pokemon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js" type="module"></script>
+    <script src="https://kit.fontawesome.com/8bef8de180.js" crossorigin="anonymous"></script>
+    <title>Workshop_Grupal</title>
 </head>
 
 <body>
     <header class="header">
         <figure class="header_figure">
-            <img src="./imagenesPokemon/pokebola.png" alt="imagen pokebola">
+            <img src="https://seeklogo.com/images/P/pokeball-logo-DC23868CA1-seeklogo.com.png" alt="imagen pokebola">
         </figure>
-        <h1 class="header_h1" id="nameProyect">pokedex</h1>
+        <h1 class="header_h1" id="nameProyect">Pokedex</h1>
     </header>
+
     <main>
+        
         <div class="container1">
+          
             <section class="main_section">
                 <div class="main_section_title">
-                    <img id="main_img1" src="./imagenesPokemon/f3.png" alt="">
-                    <h1 id="name_pokemon">Charizar</h1>
+                    <div id="pokemon-info">
+                        <h6 id="nombre-pokemon"></h6>
+                    </div>
                 </div>
                 <figure class="main_figure">
-                    <img id="main_img2" src="./imagenesPokemon/p3.png" alt="pokemon Charizar">
+                    <img id="imagen-pokemon" src="" alt="Imagen del Pokémon">
                 </figure>
             </section>
         </div>
@@ -32,12 +42,12 @@
         <div class="container2">
             <div class="row">
                 <div class="col">
-                    <span class="detail-title"> No </span>
-                    <p> 006 </p>
+                    <span class="detail-title" > No </span>
+                    <p id="No-Pokemon-Random"></p>
                 </div>
                 <div class="col">
                     <span class="detail-title"> Level </span>
-                    <p> 100 </p>
+                    <p id="level-pokemon-random"></p>
                 </div>
             </div>
             <div class="row">
@@ -62,19 +72,21 @@
             </div>
         </div>
     </main>
+
     <footer>
         <section class="footer_section">
             <div class="div_footer_tittle">
-                <h1 class="title-footer"> other </h1>
+                <h1 class="title-footer"> Others </h1>
             </div>
-            <div class="div_footer">
+            <!-- <div class="div_footer">
                 <img class="div_footer_imagin" src="./imagenesPokemon/p1.png" alt="">
                 <img class="div_footer_imagin" src="./imagenesPokemon/p2.png" alt="">
                 <img class="div_footer_imagin" src="./imagenesPokemon/p3.png" alt="">
                 <img class="div_footer_imagin" src="./imagenesPokemon/p4.png" alt="" srcset="">
-            </div>
+            </div> -->
         </section>
     </footer>
+        
 </body>
 
 </html>
