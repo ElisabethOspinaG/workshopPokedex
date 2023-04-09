@@ -5,6 +5,11 @@
 const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
+//Elisabeth Agregue estas dos constantes para realizar el footer
+const imgsFooter = [];
+const imageWrapper = document.querySelector(".image-wrapper");
+const scrollLeftBtn = document.querySelector('.scroll-left-btn');
+const scrollRightBtn = document.querySelector('.scroll-right-btn');
 
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
@@ -82,7 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   weightPokemonElement.innerHTML = `${weightPokemon}`;
 
   // ELISABETH OSPINA PINTAR LOS POKEMONES EN EL FOOTER
-  const imgsFooter = [];
+  
   const container3 = "";
   const OnlyImgPekemon = [];
   for (const element of pokemones) {
@@ -96,7 +101,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     imgsFooter.push(list20Pokemons);
     const container3 =  document.getElementById("container_footer");
     container3.innerHTML += `
-    <img class="div_footer_imagin" src=${list20Pokemons.imagen} >
+    <img id = "image-wrapper" class="div_footer_imagin mx-1 img-fluid" src=${list20Pokemons.imagen} >
     `;
     const OnlyImgPekemon = list20Pokemons[list20Pokemons.imagen];
 };
@@ -105,16 +110,43 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 });
 
+// PARA HACER ESCROLL EL FOOTER
+
+
+
+
+scrollLeftBtn.addEventListener('click', () => {
+  imageWrapper.scrollLeft -= 200; // desplaza el contenido 200 píxeles hacia la izquierda
+});
+
+scrollRightBtn.addEventListener('click', () => {
+  imageWrapper.scrollLeft += 200; // desplaza el contenido 200 píxeles hacia la derecha
+});
+
 // //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
 
 //EVENTO ONCLICK
 
-document.addEventListener(`click`, async (e) => {
+document.addEventListener("click", (event) => {
+  const infoApi = getPokemonsfromapi(URL_API);
+  pokemones = infoApi.results;
+  const captureLaImagen = console.log("Hice click en ", event.target);
 
-  const pokemons = await getPokemonApi(URL_API_POKEMON);
-  
-  // guardamos en una constante el atributo de la url minuto 3:10:12
-  const idPokemon = e.target.getAttribute("-url");   
-  
-  
+  if (event.target.classList.contains('container_footer')) {
+    console.log("Hice click aquí");
+    console.log(event.target);
+    const dataCardAttribute = event.target.getAttribute('container_footer');
+    console.log(dataCardAttribute);
+  // if(captureLaImagen){
+  //   console.log("ingreso al if de capturar la imagen");
+  //   const idPokemonElement = document.getElementById("No-Pokemon-Random");
+  //   idPokemonElement.innerHTML = captureLaImagen;
+
+  };
+
+    
+  // 
+  // }
+
+
 });

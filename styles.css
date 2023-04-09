@@ -1,7 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-footer{color: rgb(255, 255, 255);}
+footer{color: rgb(255, 255, 255);
+    position: fixed; /* ingrese estos estilos para hacer el scrill del footer */
+    bottom: 0; /* ingrese estos estilos para hacer el scrill del footer */
+    left: 0; /* ingrese estos estilos para hacer el scrill del footer */
+    width: 100%; /* ingrese estos estilos para hacer el scrill del footer */
+} 
+
 header{color: rgb(255, 255, 255)}
+
 body{
     font-family: 'Roboto', sans-serif;
 }
@@ -95,51 +102,57 @@ main{
     margin: 10px 0px 10px 0px ;
  }
 
- .footer_section{display: flex;
-    align-items: center;
- }
-.title-footer{
-    justify-content: center
- }
-h1{
-    font-size: 16pt;
-    text-align: center;
-}
 
 /* #name_pokemon ::before{
     content: "Charizar";
     background-image: crimson;
 } */
 
+/* Aqui comienzan los estilos del footer */
+
 .div_footer_tittle{width: 100%;
 }
+
+.title-footer{
+    justify-content: center
+ }
+
+h1{
+    font-size: 20pt;
+    text-align: center;
+}
+
 .footer_section{
     font-size: 14pt;
     font-family: verdana, arial;
     text-align: center;
     background-color: rgb(31, 31, 31);
     display: flex; 
-       
-}
-.div_footer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-.div_footer_imagin{
-    opacity: 0.6;
-    width: 10%;
-    cursor: pointer;
-    justify-content: space-between; /*le da el mismo espacio a todos los elementos de la linea los separa en la misma proporcion*/
+    align-items: center;    
 }
 
-.div_footer_imagin:hover {
+
+
+.footer-images{
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: 3%;
+    margin-right: 4%;  
+}
+
+#image-wrapper{
+    opacity: 1;
+    width:8%;
+    cursor: pointer;
+    justify-content: 300px;
+    justify-content: space-between; /*le da el mismo espacio a todos los elementos de la linea los separa en la misma proporcion */
+}
+
+#image-wrapper:hover {
     opacity: 1;
     width: 11%;
     cursor: pointer;
-}
+}  
 
 .row{
     display: flex;
@@ -149,6 +162,23 @@ h1{
 .col{
     width: 45%;
 }
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .scroll-left-btn {
+    left: 10rem;
+  }
+  
+  .scroll-right-btn {
+    right: 1rem;
+  }
 
 @media screen and (max-width: 900px) {
     main {
