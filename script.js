@@ -13,12 +13,13 @@ const getPokemonsfromapi = async (url) => {
     return data;
 };
 
+
 document.addEventListener("DOMContentLoaded", async () => {
   const infoapiname = await getPokemonsfromapi(URL_API);
+  
   pokemones = infoapiname.results;
   const numeroAleatorio = Math.floor(Math.random() * pokemones.length);
   const pokemonAleatorio = pokemones[numeroAleatorio];
-
   const responsePokemon = await fetch(pokemonAleatorio.url);
   const dataPokemon = await responsePokemon.json();
   const nombrePokemon = dataPokemon.name;
@@ -79,25 +80,41 @@ document.addEventListener("DOMContentLoaded", async () => {
   //console.log("el peso del pokemon es ", weight);
   const weightPokemonElement = document.getElementById("weight-pokemon-random");
   weightPokemonElement.innerHTML = `${weightPokemon}`;
+
+  // ELISABETH OSPINA PINTAR LOS POKEMONES EN EL FOOTER
+  const imgsFooter = [];
+  const container3 = "";
+  const OnlyImgPekemon = [];
+  for (const element of pokemones) {
+    const urlPokemons = element.url;
+    const infoPokemon = await axios.get(urlPokemons);
+    const list20Pokemons = {
+        id: infoPokemon.data.id,
+        name:infoPokemon.data.name,
+        imagen: infoPokemon.data.sprites.other['official-artwork'].front_default,
+    }
+    imgsFooter.push(list20Pokemons);
+    const container3 =  document.getElementById("container_footer");
+    container3.innerHTML += `
+    <img class="div_footer_imagin" src=${list20Pokemons.imagen} >
+    `;
+    const OnlyImgPekemon = list20Pokemons[list20Pokemons.imagen];
+};
+
+//console.log("Esta es la info DE OnlyImgPekemon", OnlyImgPekemon);
+
 });
 
-//  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
+// //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
 
-/*------------------------ Imagen de tipo de pokemon apartir del random ID ---------------------------------------------------------------*/
+//EVENTO ONCLICK
 
-// Seleccionar imagenes de los tipos de pokemon un otra api para relacion el
-// tipo de pokemon que muestra la API y su respectiva imagen
+document.addEventListener(`click`, async (e) => {
 
-/*----------------- SELECTED POKEMON - MAIN POK Funcion para obtener la imagen del imagen principal a partir del random ID-------------------*/
-
-/*----------------- SELECTED POKEMON - Funcion para obtener el contenido de la tabla del pokemon principal -------------------*/
-
-/*----------------- Funcion para obtener 10 pokemones random -------------------*/
-
-/*----------------- -------------------*/
-
-/*----------------- -------------------*/
-
-/*----------------- -------------------*/
-
-/*----------------- -------------------*/
+  const pokemons = await getPokemonApi(URL_API_POKEMON);
+  
+  // guardamos en una constante el atributo de la url minuto 3:10:12
+  const idPokemon = e.target.getAttribute("-url");   
+  
+  
+});
