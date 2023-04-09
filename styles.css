@@ -121,25 +121,6 @@ h1{
     display: flex; 
        
 }
-.div_footer{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-.div_footer_imagin{
-    opacity: 0.6;
-    width: 10%;
-    cursor: pointer;
-    justify-content: space-between; /*le da el mismo espacio a todos los elementos de la linea los separa en la misma proporcion*/
-}
-
-.div_footer_imagin:hover {
-    opacity: 1;
-    width: 11%;
-    cursor: pointer;
-}
 
 .row{
     display: flex;
@@ -150,10 +131,330 @@ h1{
     width: 45%;
 }
 
+.imagenes-pokemones-todos {
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .imagenes-pokemones-todos img {
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+  .imagenes-pokemones-todos img:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+
 @media screen and (max-width: 900px) {
     main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+  }@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+  footer{color: rgb(255, 255, 255);}
+  header{color: rgb(255, 255, 255)}
+  body{
+      font-family: 'Roboto', sans-serif;
   }
+  
+  
+  header {
+      font-size: 18pt;
+      text-align: center;
+      background-color: rgb(31, 31, 31);
+      justify-items: start;
+      padding: 10px; /*/margen al lado izquierdo por dentro del header*/
+      align-items: center; /* alinear centrado en el eje vertical > */
+      display: flex; /* para que los elementos me queden seguidos*/
+      /* gap: 10px; /* para darle espacio a los elementos que pusimos seguidos.  */
+                    /*Esta de la mano con display flex*/
+  
+  }
+  
+  
+  .header_figure img{
+      width: 30px;
+      height: 30px;
+      padding: 10px;   
+  }
+  
+  main{ 
+      font-size: 20pt;
+      text-align: center;
+      background-color: #5c5c5c; 
+      padding: 5%; 
+      justify-content: space-between;
+  }
+  
+  
+  
+  figure{
+      margin: 0;
+  }
+  
+  main{
+      display: flex;
+      gap: 5px;
+      justify-items: center;
+  }
+  
+  .main_section{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+      /*justify-content: center; /para colocar en todo el centro del contenedor */
+      /*display: inline-block ; /tipo de alineacion vertical pero con las propeidades del flex*/
+  }
+  .main_section_title{
+      display: flex;
+      padding: 8px;
+      justify-content: center;
+      background-color: rgb(226, 226, 226);
+      text-align: center;
+      border-radius: 10px;
+      align-items: center;
+      width: fit-content;
+  
+  }
+  .detail-title{
+      font-size: 30px;
+      font-weight: bolder;
+  }
+  .container1{
+      display: flex;
+      gap: 5px;
+  }
+  
+  .container2{
+      width: 30%;
+      opacity: 0,5;
+      background-color: rgb(253, 253, 253);
+      padding-left: 20px;
+      padding-right: 20px;
+      border-radius: 22px; 
+      display: flex;
+      align-content: space-around;
+      flex-direction: column;
+      justify-content: space-around;
+  }
+  
+  
+  #main_img2{
+      width: 50%;
+      margin: 10px 0px 10px 0px ;
+   }
+  
+  .footer_section{display: flex;
+      align-items: center;
+   }
+  .title-footer{
+      justify-content: center
+   }
+  h1{
+      font-size: 16pt;
+      text-align: center;
+  }
+  
+  /* #name_pokemon ::before{
+      content: "Charizar";
+      background-image: crimson;
+  } */
+  
+  .div_footer_tittle{width: 100%;
+  }
+  .footer_section{
+      font-size: 14pt;
+      font-family: verdana, arial;
+      text-align: center;
+      background-color: rgb(31, 31, 31);
+      display: flex; 
+         
+  }
+  
+  .row{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .col{
+      width: 45%;
+  }
+  
+  .imagenes-pokemones-todos {
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .imagenes-pokemones-todos img {
+      opacity: 0.5;
+      transition: opacity 0.5s;
+    }
+    .imagenes-pokemones-todos img:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    
+  
+  @media screen and (max-width: 900px) {
+      main {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+      }
+    }@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+    footer{color: rgb(255, 255, 255);}
+    header{color: rgb(255, 255, 255)}
+    body{
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    
+    header {
+        font-size: 18pt;
+        text-align: center;
+        background-color: rgb(31, 31, 31);
+        justify-items: start;
+        padding: 10px; /*/margen al lado izquierdo por dentro del header*/
+        align-items: center; /* alinear centrado en el eje vertical > */
+        display: flex; /* para que los elementos me queden seguidos*/
+        /* gap: 10px; /* para darle espacio a los elementos que pusimos seguidos.  */
+                      /*Esta de la mano con display flex*/
+    
+    }
+    
+    
+    .header_figure img{
+        width: 30px;
+        height: 30px;
+        padding: 10px;   
+    }
+    
+    main{ 
+        font-size: 20pt;
+        text-align: center;
+        background-color: #5c5c5c; 
+        padding: 5%; 
+        justify-content: space-between;
+    }
+    
+    
+    
+    figure{
+        margin: 0;
+    }
+    
+    main{
+        display: flex;
+        gap: 5px;
+        justify-items: center;
+    }
+    
+    .main_section{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        /*justify-content: center; /para colocar en todo el centro del contenedor */
+        /*display: inline-block ; /tipo de alineacion vertical pero con las propeidades del flex*/
+    }
+    .main_section_title{
+        display: flex;
+        padding: 8px;
+        justify-content: center;
+        background-color: rgb(226, 226, 226);
+        text-align: center;
+        border-radius: 10px;
+        align-items: center;
+        width: fit-content;
+    
+    }
+    .detail-title{
+        font-size: 30px;
+        font-weight: bolder;
+    }
+    .container1{
+        display: flex;
+        gap: 5px;
+    }
+    
+    .container2{
+        width: 30%;
+        opacity: 0,5;
+        background-color: rgb(253, 253, 253);
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 22px; 
+        display: flex;
+        align-content: space-around;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    
+    
+    #main_img2{
+        width: 50%;
+        margin: 10px 0px 10px 0px ;
+     }
+    
+    .footer_section{display: flex;
+        align-items: center;
+     }
+    .title-footer{
+        justify-content: center
+     }
+    h1{
+        font-size: 16pt;
+        text-align: center;
+    }
+    
+    /* #name_pokemon ::before{
+        content: "Charizar";
+        background-image: crimson;
+    } */
+    
+    .div_footer_tittle{width: 100%;
+    }
+    .footer_section{
+        font-size: 14pt;
+        font-family: verdana, arial;
+        text-align: center;
+        background-color: rgb(31, 31, 31);
+        display: flex; 
+           
+    }
+    
+    .row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .col{
+        width: 45%;
+    }
+    
+    .imagenes-pokemones-todos {
+        overflow-x: auto;
+        white-space: nowrap;
+      }
+      .imagenes-pokemones-todos img {
+        opacity: 0.5;
+        transition: opacity 0.5s;
+      }
+      .imagenes-pokemones-todos img:hover {
+        opacity: 1;
+        cursor: pointer;
+      }
+      
+    
+    @media screen and (max-width: 900px) {
+        main {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+      }
