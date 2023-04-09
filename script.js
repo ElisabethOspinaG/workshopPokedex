@@ -1,3 +1,4 @@
+
 //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
 
 // Obtener nombre de los Primerpokemon a mostrar
@@ -12,6 +13,7 @@ const getPokemonsfromapi = async (url) => {
     const {data} = await axios.get(url);
     return data;
 };
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   const infoapiname = await getPokemonsfromapi(URL_API);
@@ -70,79 +72,112 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // PINTAR EL HIGHT
   const heightPokemon = dataPokemon.height;
-
   //console.log("la altura del pokemon es ", heightPokemon);
   const heightPokemonElement = document.getElementById("height-pokemon-random");
   heightPokemonElement.innerHTML = `${heightPokemon}`;
 
   // PINTAR EL WEIGGHT
-  
+  const weightPokemon = dataPokemon.weight;
   //console.log("el peso del pokemon es ", weight);
   const weightPokemonElement = document.getElementById("weight-pokemon-random");
   weightPokemonElement.innerHTML = `${weightPokemon}`;
 
   const imagenesPokemonesElemento = document.querySelector(".imagenes-pokemones-todos");
 
-  for (let i = 0; i < pokemones.length; i++) {
-    const responsePokemon = await fetch(pokemones[i].url);
-    const dataPokemon = await responsePokemon.json();
-    const imagenPokemon = dataPokemon.sprites.other["official-artwork"].front_default;
-  
-    const imagenPokemonElemento = document.createElement("img");
-    imagenPokemonElemento.src = imagenPokemon;
-    imagenPokemonElemento.style.width = "100px"; // Agregar un ancho fijo para evitar superposición de imágenes
-    
-    // Agrega un evento click a la imagen
-    imagenPokemonElemento.addEventListener("click", () => {
-      // Aquí colocas el código que cambia la imagen y la información del pokemon
-    });
-    
-    imagenesPokemonesElemento.appendChild(imagenPokemonElemento);
-  }
+for (let i = 0; i < pokemones.length; i++) {
+  const responsePokemon = await fetch(pokemones[i].url);
+  const dataPokemon = await responsePokemon.json();
+  const imagenPokemon = dataPokemon.sprites.other["official-artwork"].front_default;
+
+  const imagenPokemonElemento = document.createElement("img");
+  imagenPokemonElemento.src = imagenPokemon;
+  imagenPokemonElemento.style.width = "100px"; // Agregar un ancho fijo para evitar superposición de imágenes
+  imagenesPokemonesElemento.appendChild(imagenPokemonElemento);
 
   imagenPokemonElemento.addEventListener("click", async () => {
-    const responsePokemon = await fetch(pokemones[i].url);
-    const dataPokemon = await responsePokemon.json();
-    const imagenPokemon = dataPokemon.sprites.other["official-artwork"].front_default;
+    const responsePokemonDetail = await fetch(pokemones[i].url);
+    const pokemonDetail = await responsePokemonDetail.json();
+    const imagenPokemon =
+      pokemonDetail.sprites.other["official-artwork"].front_default;
   
-    // Actualiza la imagen
-    imagenPokemonElemento.src = imagenPokemon;
+    // Reemplazar la imagen principal con la del Pokemon seleccionado
+    const imagenPokemonPrincipal = document.getElementById("imagen-pokemon");
+    imagenPokemonPrincipal.src = imagenPokemon;
+
+    // Actualizar el nombre del Pokemon en el elemento h6
+  const nombrePokemon = pokemonDetail.name;
+  const nombrePokemonElemento = document.getElementById("nombre-pokemon");
+  nombrePokemonElemento.innerHTML = `${nombrePokemon.toUpperCase()}`;
   
-    // Actualiza la información
-    const nombrePokemon = dataPokemon.name;
-    const nombrePokemonElemento = document.getElementById("nombre-pokemon");
-    nombrePokemonElemento.innerHTML = `${nombrePokemon.toUpperCase()}`;
-    
+    // Reemplazar la información de la tabla con la del Pokemon seleccionado
     const idPokemonElement = document.getElementById("No-Pokemon-Random");
-    idPokemonElement.innerHTML = `${dataPokemon.id}`;
-    
-    const levelPokemon = dataPokemon.base_experience;
+    idPokemonElement.innerHTML = `${pokemonDetail.id}`;
+  
     const levelPokemonElement = document.getElementById("level-pokemon-random");
-    levelPokemonElement.innerHTML = `${levelPokemon}`;
-    
-    const typePokemon = dataPokemon.types[0].type.name;
+    levelPokemonElement.innerHTML = `${pokemonDetail.base_experience}`;
+  
     const typePokemonElement = document.getElementById("type-pokemon-random");
-    typePokemonElement.innerHTML = `${typePokemon}`;
-    
+    typePokemonElement.innerHTML = `${pokemonDetail.types[0].type.name}`;
+  
     let abilityName = "";
-    dataPokemon.abilities.forEach((ability) => {
+    pokemonDetail.abilities.forEach((ability) => {
       abilityName += ability.ability.name + " , ";
     });
     const abilitiesPokemonElement = document.getElementById(
       "hability-pokemon-random"
     );
     abilitiesPokemonElement.innerHTML = `${abilityName}`;
-    
-    const heightPokemon = dataPokemon.height;
+  
     const heightPokemonElement = document.getElementById("height-pokemon-random");
-    heightPokemonElement.innerHTML = `${heightPokemon}`;
-    
-    const weightPokemon = dataPokemon.weight;
+    heightPokemonElement.innerHTML = `${pokemonDetail.height}`;
+  
     const weightPokemonElement = document.getElementById("weight-pokemon-random");
-    weightPokemonElement.innerHTML = `${weightPokemon}`;
+    weightPokemonElement.innerHTML = `${pokemonDetail.weight}`;
   });
   
+  const botonBuscar = document.getElementById("boton-buscar");
 
+  botonBuscar.addEventListener("click", async () => {
+    const nombrePokemonBuscado = document.getElementById("pokemon-buscado").value.toLowerCase();
+    const pokemonBuscado = pokemones.find(pokemon => pokemon.name === nombrePokemonBuscado);
+    
+    if (pokemonBuscado) {
+      const responsePokemonDetail = await fetch(pokemonBuscado.url);
+      const pokemonDetail = await responsePokemonDetail.json();
+    
+      const imagenPokemon = pokemonDetail.sprites.other["official-artwork"].front_default;
+      const imagenPokemonElemento = document.getElementById("imagen-pokemon");
+      imagenPokemonElemento.src = imagenPokemon;
+    
+      const nombrePokemonElemento = document.getElementById("nombre-pokemon");
+      nombrePokemonElemento.innerHTML = `${nombrePokemonBuscado.toUpperCase()}`;
+    
+      const idPokemonElement = document.getElementById("No-Pokemon-Random");
+      idPokemonElement.innerHTML = `${pokemonDetail.id}`;
+    
+      const levelPokemonElement = document.getElementById("level-pokemon-random");
+      levelPokemonElement.innerHTML = `${pokemonDetail.base_experience}`;
+    
+      const typePokemonElement = document.getElementById("type-pokemon-random");
+      typePokemonElement.innerHTML = `${pokemonDetail.types[0].type.name}`;
+    
+      let abilityName = "";
+      pokemonDetail.abilities.forEach((ability) => {
+        abilityName += ability.ability.name + " , ";
+      });
+      const abilitiesPokemonElement = document.getElementById("hability-pokemon-random");
+      abilitiesPokemonElement.innerHTML = `${abilityName}`;
+    
+      const heightPokemonElement = document.getElementById("height-pokemon-random");
+      heightPokemonElement.innerHTML = `${pokemonDetail.height}`;
+    
+      const weightPokemonElement = document.getElementById("weight-pokemon-random");
+      weightPokemonElement.innerHTML = `${pokemonDetail.weight}`;
+    
+    } 
+    
+  });
+}
 });
 
 
