@@ -148,6 +148,59 @@ h1{
 .col{
     width: 45%;
 }
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header__element {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header__element img {
+    max-height: 50px;
+    margin-right: 10px;
+  }
+  
+  .header__element h1 {
+    margin: 0;
+  }
+  
+  button  {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/107/107122.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #fff;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-size: 50%;
+  }
+  header {
+    display: flex;
+    justify-content: space-between; /* para distribuir los elementos horizontalmente */
+    align-items: center;
+  }
+  
+  form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+  }
+  
+  input[type="text"] {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    width: 300px; 
+    margin-left: auto;
+  }
+  
 
 @media screen and (max-width: 900px) {
     main {

@@ -5,14 +5,42 @@
 const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
-
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
-const getPokemonsfromapi = async (a) => {
-  const { data } = await axios.get(a);
-  return data;
-};
 
+const getPokemonsfromapi = async (url) => {
+    const {data} = await axios.get(url);
+    return data;
+};
+let allInfoPokemons = [];
+const getPokemonApi = async(url)=>{
+  try {
+      const {data} = await axios.get(url);
+      
+      for (const element of data.results){
+          const urlPokemons = element.url;
+          const infoPokemon = await axios.get(urlPokemons);
+          const  pokemon= {
+            id: infoPokemon.data.id,
+            name: infoPokemon.data.name,
+            type: infoPokemon.data.types.map(item=> item.type.name),
+            height:infoPokemon.data.height,
+            weight:infoPokemon.data.weight,
+            level:infoPokemon.data.base_experience,
+            imagen: infoPokemon.data.sprites.other['official-artwork'].front_default,
+            abilities: infoPokemon.data.abilities.map(item=> item.ability.name),
+          }
+          allInfoPokemons.push(pokemon); console.log(pokemon);
+      };
+     
+      console.log("estoy hay en data: ", allInfoPokemons);
+      return allInfoPokemons;
+      
+  } catch (error) {
+      console.log("usuario, hay un error");
+      return[];
+  }
+};
 document.addEventListener("DOMContentLoaded", async () => {
   const infoapiname = await getPokemonsfromapi(URL_API);
   pokemones = infoapiname.results;
@@ -101,3 +129,80 @@ document.addEventListener("DOMContentLoaded", async () => {
 /*----------------- -------------------*/
 
 /*----------------- -------------------*/
+const input = document.querySelector(".header__input");
+const searchButton = document.querySelector(".buscar");
+
+// Escuchar el evento click del botón buscar
+searchButton.addEventListener("click", async (event) => {
+  event.preventDefault();
+  // Obtener el valor del input
+  const inputValue = input.value;
+  console.log(inputValue);
+  // Llamar a la función para obtener el array de pokemones
+  allInfoPokemons = await getPokemonApi(URL_API);
+
+ // Filtrar el array de pokemones por nombre
+  const result = allInfoPokemons.find((pokemon) =>
+    pokemon.name.toLowerCase() === inputValue.toLowerCase()
+  );
+  //toLowerCase es una función de JavaScript que convierte una cadena de texto en minúsculas. 
+  if(result){   
+    const nombrePokemonElemento = document.getElementById("nombre-pokemon");
+    nombrePokemonElemento.innerHTML = `${result.name.toUpperCase()}`;
+    
+    const imagenPokemonElemento = document.getElementById("imagen-pokemon");
+    imagenPokemonElemento.src = result.imagen;
+    
+    // Para pintar la tabla voy a usar la constante pokemonAleatorio construida en la línea 5
+    const idPokemonElement = document.getElementById("No-Pokemon-Random");
+    idPokemonElement.innerHTML = result.id
+  
+    const levelPokemonElement = document.getElementById("level-pokemon-random");
+    levelPokemonElement.innerHTML = result.level
+ 
+    
+
+    const typePokemonElement = document.getElementById("type-pokemon-random");
+    typePokemonElement.innerHTML = result.type
+    
+    const abilitiesPokemonElement = document.getElementById(
+      "hability-pokemon-random"
+    );
+    const abilityNames = result.abilities.slice(0, 4).map((ability) => ability);
+    const abilityString = abilityNames.join(", ");
+    abilitiesPokemonElement.innerHTML = abilityString;
+    console.log(abilityString);
+//utilizar map() para crear un nuevo array de strings con los nombres de las habilidades y luego unirlos con join(). en este punto abilities es un array de strings, abilityString contendrá una cadena con los nombres de las habilidades separados por comas y espacios.    
+    
+    // PINTAR EL HEIGHT
+    const heightPokemon = result.height;
+    //console.log("la altura del pokemon es ", heightPokemon);
+    const heightPokemonElement = document.getElementById("height-pokemon-random");
+    heightPokemonElement.innerHTML = `${heightPokemon}`;
+    
+    // PINTAR EL WEIGHT
+    const weightPokemon = result.weight;
+    //console.log("el peso del pokemon es ", weight);
+    const weightPokemonElement = document.getElementById("weight-pokemon-random");
+    weightPokemonElement.innerHTML = `${weightPokemon}`;
+console.log(result);
+  }else {
+     console.log(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`);
+     swal(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`) 
+  }
+  
+}); 
+
+
+// const pokemonInfo = {
+//   "nombre-pokemon": pokemonAleatorio.name.toUpperCase(),
+//   "imagen-pokemon": pokemonAleatorio.imagen,
+//   "No-Pokemon-Random": pokemonAleatorio.id,
+//   "level-pokemon-random": pokemonAleatorio.base_experience,
+//   "type-pokemon-random": pokemonAleatorio.type[0],
+//   "hability-pokemon-random": pokemonAleatorio.abilities.slice(0, 4).join(", "),
+//   "height-pokemon-random": pokemonAleatorio.height,
+//   "weight-pokemon-random": pokemonAleatorio.weight
+// };
+
+
