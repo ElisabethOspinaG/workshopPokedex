@@ -1,8 +1,6 @@
 
 //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
 
-// Obtener nombre de los Primerpokemon a mostrar
-
 const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
@@ -11,6 +9,7 @@ const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
 const getPokemonsfromapi = async (url) => {
     const {data} = await axios.get(url);
+    console.log("Este es el log 1",data);
     return data;
 };
 
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   console.log(`El ID del Pokémon aleatorio es: ${dataPokemon.id}`);
 
   /*----------------- SINCRONIZAR LA INFORMACION DEL POKEMON CARGADO ALEATORIAMENTE -------------------*/
-  // NO DATA
 
   // Para pintra la tabla voy a usar la constante dataPokemon construida en la linea 24
   const idPokemonElement = document.getElementById("No-Pokemon-Random");
