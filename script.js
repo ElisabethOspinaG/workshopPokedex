@@ -8,8 +8,6 @@ let pokemones = [];
 //Elisabeth Agregue estas dos constantes para realizar el footer
 const imgsFooter = [];
 const imageWrapper = document.querySelector(".image-wrapper");
-const scrollLeftBtn = document.querySelector('.scroll-left-btn');
-const scrollRightBtn = document.querySelector('.scroll-right-btn');
 
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
@@ -106,47 +104,5 @@ document.addEventListener("DOMContentLoaded", async () => {
     const OnlyImgPekemon = list20Pokemons[list20Pokemons.imagen];
 };
 
-//console.log("Esta es la info DE OnlyImgPekemon", OnlyImgPekemon);
-
 });
 
-// PARA HACER ESCROLL EL FOOTER
-
-
-
-
-scrollLeftBtn.addEventListener('click', () => {
-  imageWrapper.scrollLeft -= 200; // desplaza el contenido 200 píxeles hacia la izquierda
-});
-
-scrollRightBtn.addEventListener('click', () => {
-  imageWrapper.scrollLeft += 200; // desplaza el contenido 200 píxeles hacia la derecha
-});
-
-// //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
-
-//EVENTO ONCLICK
-
-document.addEventListener("click", (event) => {
-  const infoApi = getPokemonsfromapi(URL_API);
-  pokemones = infoApi.results;
-  const captureLaImagen = console.log("Hice click en ", event.target);
-
-  if (event.target.classList.contains('container_footer')) {
-    console.log("Hice click aquí");
-    console.log(event.target);
-    const dataCardAttribute = event.target.getAttribute('container_footer');
-    console.log(dataCardAttribute);
-  // if(captureLaImagen){
-  //   console.log("ingreso al if de capturar la imagen");
-  //   const idPokemonElement = document.getElementById("No-Pokemon-Random");
-  //   idPokemonElement.innerHTML = captureLaImagen;
-
-  };
-
-    
-  // 
-  // }
-
-
-});
