@@ -178,5 +178,8 @@
     }
     
   }); 
+  // ---------------------------- PINTAR IMAGENES DE OTHERS ------------------------
+
+  // ---------------------------- DARLE FUNCION DE CLICK A LAS IMAGENES DE OTHERS ------------------------
 
 
