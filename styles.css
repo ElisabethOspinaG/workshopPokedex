@@ -116,7 +116,7 @@
       font-size: 16pt;
       text-align: center;
   }
-  
+
 /* ---------------- CSS PARA BARRA DE BUSQUEDA -------------------------- */
 
 .buscar {
@@ -180,7 +180,7 @@
   }
   .col{
       width: 45%;
-  }
+  } 
   
   .imagenes-pokemones-todos {
       overflow-x: auto;
