@@ -113,14 +113,13 @@
       font-size: 16pt;
       text-align: center;
   }
+
   
-  /* #name_pokemon ::before{
-      content: "Charizar";
-      background-image: crimson;
-  } */
-  
+/* --------------------- CONTENIDO DE CSS PARA OTHERS ----------------------- */
+ 
   .div_footer_tittle{width: 100%;
   }
+
   .footer_section{
       font-size: 14pt;
       font-family: verdana, arial;
@@ -151,11 +150,8 @@
       opacity: 1;
       cursor: pointer;
     }
-    
+     
 
-
-
-  
   @media screen and (max-width: 900px) {
       main {
           flex-direction: column;
