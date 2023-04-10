@@ -1,6 +1,9 @@
 
 //  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
 
+
+//----------------------------------------  POKEMON PRINCIPAL Y NOMBRE ALEATORIO DIEGO  -------------------------------------------
+
 const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
@@ -39,7 +42,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   );
   console.log(`El ID del Pokémon aleatorio es: ${dataPokemon.id}`);
 
-  /*----------------- SINCRONIZAR LA INFORMACION DEL POKEMON CARGADO ALEATORIAMENTE -------------------*/
+  
+
+  /*----------------- SINCRONIZAR LA INFORMACION DEL POKEMON CARGADO ALEATORIAMENTE LIZ -------------------*/
 
   // Para pintra la tabla voy a usar la constante dataPokemon construida en la linea 24
   const idPokemonElement = document.getElementById("No-Pokemon-Random");
@@ -66,6 +71,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const abilitiesPokemonElement = document.getElementById(
     "hability-pokemon-random"
   );
+
   abilitiesPokemonElement.innerHTML = `${abilityName}`;
 
   // PINTAR EL HIGHT
@@ -82,6 +88,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const imagenesPokemonesElemento = document.querySelector(".imagenes-pokemones-todos");
 
+// -----------------------------------MOSTRAR IMAGENES DEL OTHERS / ELISA ------------------------------
+
 for (let i = 0; i < pokemones.length; i++) {
   const responsePokemon = await fetch(pokemones[i].url);
   const dataPokemon = await responsePokemon.json();
@@ -97,6 +105,11 @@ for (let i = 0; i < pokemones.length; i++) {
     const pokemonDetail = await responsePokemonDetail.json();
     const imagenPokemon =
       pokemonDetail.sprites.other["official-artwork"].front_default;
+
+
+// ----------------------------------- APLICAR FUNCIONALIDAD / DIEGO ------------------------------
+
+
   
     // Reemplazar la imagen principal con la del Pokemon seleccionado
     const imagenPokemonPrincipal = document.getElementById("imagen-pokemon");
@@ -133,49 +146,15 @@ for (let i = 0; i < pokemones.length; i++) {
     weightPokemonElement.innerHTML = `${pokemonDetail.weight}`;
   });
   
-  const botonBuscar = document.getElementById("boton-buscar");
-
-  botonBuscar.addEventListener("click", async () => {
-    const nombrePokemonBuscado = document.getElementById("pokemon-buscado").value.toLowerCase();
-    const pokemonBuscado = pokemones.find(pokemon => pokemon.name === nombrePokemonBuscado);
-    
-    if (pokemonBuscado) {
-      const responsePokemonDetail = await fetch(pokemonBuscado.url);
-      const pokemonDetail = await responsePokemonDetail.json();
-    
-      const imagenPokemon = pokemonDetail.sprites.other["official-artwork"].front_default;
-      const imagenPokemonElemento = document.getElementById("imagen-pokemon");
-      imagenPokemonElemento.src = imagenPokemon;
-    
-      const nombrePokemonElemento = document.getElementById("nombre-pokemon");
-      nombrePokemonElemento.innerHTML = `${nombrePokemonBuscado.toUpperCase()}`;
-    
-      const idPokemonElement = document.getElementById("No-Pokemon-Random");
-      idPokemonElement.innerHTML = `${pokemonDetail.id}`;
-    
-      const levelPokemonElement = document.getElementById("level-pokemon-random");
-      levelPokemonElement.innerHTML = `${pokemonDetail.base_experience}`;
-    
-      const typePokemonElement = document.getElementById("type-pokemon-random");
-      typePokemonElement.innerHTML = `${pokemonDetail.types[0].type.name}`;
-    
-      let abilityName = "";
-      pokemonDetail.abilities.forEach((ability) => {
-        abilityName += ability.ability.name + " , ";
-      });
-      const abilitiesPokemonElement = document.getElementById("hability-pokemon-random");
-      abilitiesPokemonElement.innerHTML = `${abilityName}`;
-    
-      const heightPokemonElement = document.getElementById("height-pokemon-random");
-      heightPokemonElement.innerHTML = `${pokemonDetail.height}`;
-    
-      const weightPokemonElement = document.getElementById("weight-pokemon-random");
-      weightPokemonElement.innerHTML = `${pokemonDetail.weight}`;
-    
-    } 
-    
-  });
 }
 });
+
+
+// ----------------------------------- BARRA DE BUSQUEDA / ANGIE -------------------------------
+
+
+
+
+
 
 
