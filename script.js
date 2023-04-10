@@ -1,13 +1,9 @@
-//  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
-
 // Obtener nombre de los Primerpokemon a mostrar
 
 const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
-//Elisabeth Agregue estas dos constantes para realizar el footer
 const imgsFooter = [];
-const imageWrapper = document.querySelector(".image-wrapper");
 
 const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
@@ -105,4 +101,3 @@ document.addEventListener("DOMContentLoaded", async () => {
 };
 
 });
-

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 footer{color: rgb(255, 255, 255);
-    position: fixed; /* ingrese estos estilos para hacer el scrill del footer */
     bottom: 0; /* ingrese estos estilos para hacer el scrill del footer */
     left: 0; /* ingrese estos estilos para hacer el scrill del footer */
     width: 100%; /* ingrese estos estilos para hacer el scrill del footer */
@@ -172,13 +171,6 @@ button {
     color: white;
   }
   
-  .scroll-left-btn {
-    left: 10rem;
-  }
-  
-  .scroll-right-btn {
-    right: 1rem;
-  }
 
 @media screen and (max-width: 900px) {
     main {
