@@ -103,7 +103,7 @@
         padding-right: 20px;
         border-radius: 22px; 
         display: flex;
-        align-content: space-around;
+        align-content: center;
         flex-direction: column;
         justify-content: space-around;
     }
@@ -194,18 +194,18 @@
         align-items: center;
     }
 
-    .footer-images {
+    .imagenes-pokemones-todos {
       display: flex;
       overflow-x: auto;
       white-space: nowrap;
     }
 
-    .footer-images img {
+    .imagenes-pokemones-todos img {
         width: 10%;
       opacity: 0.5;
       transition: opacity 0.5s;
     }
-    .footer-images img:hover {
+    .imagenes-pokemones-todos img:hover {
       opacity: 1;
       cursor: pointer;
     }
