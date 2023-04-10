@@ -5,6 +5,8 @@
   const randomId = Math.floor(Math.random() * 21);
 
   let pokemones = [];
+  const imgsFooter = [];
+
   const URL_API = "https://pokeapi.co/api/v2/pokemon";
 
 
@@ -78,6 +80,26 @@
     //console.log("el peso del pokemon es ", weight);
     const weightPokemonElement = document.getElementById("weight-pokemon-random");
     weightPokemonElement.innerHTML = `${weightPokemon}`;
+
+    // ELISABETH OSPINA PINTAR LOS POKEMONES EN EL FOOTER
+  
+    const container3 = "";
+    const OnlyImgPekemon = [];
+    for (const element of pokemones) {
+      const urlPokemons = element.url;
+      const infoPokemon = await axios.get(urlPokemons);
+      const list20Pokemons = {
+          id: infoPokemon.data.id,
+          name:infoPokemon.data.name,
+          imagen: infoPokemon.data.sprites.other['official-artwork'].front_default,
+      }
+      imgsFooter.push(list20Pokemons);
+      const container3 =  document.getElementById("container_footer");
+      container3.innerHTML += `
+      <img id = "image-wrapper" class="div_footer_imagin mx-1 img-fluid" src=${list20Pokemons.imagen} >
+      `;
+      const OnlyImgPekemon = list20Pokemons[list20Pokemons.imagen];
+    };
   });
 
 /* ----------------------------- BARRA DE BUSQUEDA--------------------------------*/
