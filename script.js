@@ -16,10 +16,10 @@ const getPokemonsfromapi = async (url) => {
     return data;
 };
 
-    /*----------------- SINCRONIZAR LA INFORMACION DEL POKEMON CARGADO ALEATORIAMENTE Y AL CLICAR LIZ -------------------*/
+    /*----------------- SINCRONIZAR LA INFORMACION DEL POKEMON CARGADO ALEATORIAMENTE LIZ -------------------*/
 function printInfoPokemonInTable(pokemonInfo) {
 
-  // Para pintra la tabla voy a usar la constante dataPokemon construida en la linea 24
+ 
   const idPokemonElement = document.getElementById("No-Pokemon-Random");
   idPokemonElement.innerHTML = `${pokemonInfo.id}`;
 
@@ -59,7 +59,7 @@ function printInfoPokemonInTable(pokemonInfo) {
   const weightPokemonElement = document.getElementById("weight-pokemon-random");
   weightPokemonElement.innerHTML = `${weightPokemon}`;
 }
-//----------------------------------------  POKEMON PRINCIPAL Y NOMBRE ALEATORIO DIEGO  -------------------------------------------
+
 
 document.addEventListener("DOMContentLoaded", async () => {
   const infoapiname = await getPokemonsfromapi(URL_API);
@@ -73,10 +73,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nombrePokemonElemento = document.getElementById("nombre-pokemon");
   nombrePokemonElemento.innerHTML = `${nombrePokemon.toUpperCase()}`;
 
-  const responsePokemonDetail = await fetch(pokemonAleatorio.url);
-  const pokemonDetail = await responsePokemonDetail.json();
+  //const responsePokemonDetail = await fetch(pokemonAleatorio.url);
+  //const pokemonDetail = await responsePokemonDetail.json();
   const imagenPokemon =
-    pokemonDetail.sprites.other["official-artwork"].front_default;
+    dataPokemon.sprites.other["official-artwork"].front_default;
 
   const imagenPokemonElemento = document.getElementById("imagen-pokemon");
   imagenPokemonElemento.src = imagenPokemon;
@@ -115,8 +115,8 @@ for (let i = 0; i < pokemones.length; i++) {
 // ----------------------------------- APLICAR FUNCIONALIDAD / DIEGO ------------------------------
   
     // Reemplazar la imagen principal con la del Pokemon seleccionado
-  const imagenPokemonPrincipal = document.getElementById("imagen-pokemon");
-  imagenPokemonPrincipal.src = imagenPokemon;
+    const imagenPokemonPrincipal = document.getElementById("imagen-pokemon");
+    imagenPokemonPrincipal.src = imagenPokemon;
 
     // Actualizar el nombre del Pokemon en el elemento h6
   const nombrePokemon = pokemonDetail.name;
