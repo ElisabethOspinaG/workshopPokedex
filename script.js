@@ -246,14 +246,12 @@ for (let i = 0; i < pokemones.length; i++) {
         weightPokemonElement.innerHTML = `${weightPokemon}`;
       console.log(result);
 
-      }else {
-        console.log(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`);
-        swal(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`) 
-      }
-      
-    }); 
-
-
+    }else {
+      console.log(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`);
+      swal(`No se ha encontrado ningún pokemon con el nombre ${inputValue}.`) 
+    }
+    
+  }); 
 
 
 
