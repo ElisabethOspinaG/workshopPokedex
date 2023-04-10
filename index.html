@@ -12,15 +12,22 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js" type="module"></script>
     <script src="https://kit.fontawesome.com/8bef8de180.js" crossorigin="anonymous"></script>
-    <title>Workshop_Grupal</title>
+    <title>Workshop_Grupal_Final</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body>
     <header class="header">
-        <figure class="header_figure">
-            <img src="https://seeklogo.com/images/P/pokeball-logo-DC23868CA1-seeklogo.com.png" alt="imagen pokebola">
-        </figure>
-        <h1 class="header_h1" id="nameProyect">Pokedex</h1>
+        <div class="header__element">
+            <figure class="header_figure">
+                <img src="https://seeklogo.com/images/P/pokeball-logo-DC23868CA1-seeklogo.com.png"
+                    alt="imagen pokebola">
+            </figure>
+            <h1 class="header_h1" id="nameProyect">Pokedex</h1>
+        </div>
+        <form><input class="header__input" type="text" placeholder="Inserte el nombre del pokemon para buscarlo">
+            <button class="buscar" aria-label="Enviar" type="submit"></button>
+        </form>
     </header>
 
     <main>

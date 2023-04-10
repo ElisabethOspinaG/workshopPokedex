@@ -2,9 +2,7 @@
 
   footer{color: rgb(255, 255, 255);}
   header{color: rgb(255, 255, 255)}
-  body{
-      font-family: 'Roboto', sans-serif;
-  }
+  body{font-family: 'Roboto', sans-serif;}
   
   
   header {
@@ -115,6 +113,52 @@
       text-align: center;
   }
 
+  /* ---------------- CSS PARA BARRA DE BUSQUEDA -------------------------- */
+
+.buscar {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/107/107122.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-size: 50%;
+    border-radius: 10px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between; /* para distribuir los elementos horizontalmente */
+    align-items: center;
+  }
+
+  .header__input{
+    border-radius: 10px;
+    opacity: 80%;
+  }
+
+  .header__element {
+    display: flex;
+    align-items: center;
+}
+
+  form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+  }
+  
+  input[type="text"] {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    width: 300px; 
+    margin-left: auto;
+  }
+  
   
 /* --------------------- CONTENIDO DE CSS PARA OTHERS ----------------------- */
  
