@@ -1,10 +1,4 @@
-
-//  NOTA...... dataPokemon.id es la forma de usar el ID de el pokemon que vamos a USAR como Pokemon por defecto
-
-
 //----------------------------------------  POKEMON PRINCIPAL Y NOMBRE ALEATORIO DIEGO  -------------------------------------------
-
-// const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
 
