@@ -4,7 +4,7 @@
 
 //----------------------------------------  POKEMON PRINCIPAL Y NOMBRE ALEATORIO DIEGO  -------------------------------------------
 
-const randomId = Math.floor(Math.random() * 21);
+// const randomId = Math.floor(Math.random() * 21);
 
 let pokemones = [];
 
@@ -21,7 +21,7 @@ function printInfoPokemonInTable(pokemonInfo) {
 
  
   const idPokemonElement = document.getElementById("No-Pokemon-Random");
-  idPokemonElement.innerHTML = `${pokemonInfo.id}`;
+  idPokemonElement.innerHTML = pokemonInfo.id;
 
   // PINTAR EL LEVEl
   const levelPokemon = pokemonInfo.base_experience;
@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   const nombrePokemonElemento = document.getElementById("nombre-pokemon");
   nombrePokemonElemento.innerHTML = `${nombrePokemon.toUpperCase()}`;
 
-  //const responsePokemonDetail = await fetch(pokemonAleatorio.url);
-  //const pokemonDetail = await responsePokemonDetail.json();
+  const responsePokemonDetail = await fetch(pokemonAleatorio.url);
+  const pokemonDetail = await responsePokemonDetail.json();
   const imagenPokemon =
     dataPokemon.sprites.other["official-artwork"].front_default;
 
